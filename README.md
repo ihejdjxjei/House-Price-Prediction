@@ -60,7 +60,10 @@ The Random Forest model achieved the best performance and was selected.
 ---
 
 ## 🌐 Project Structure
+
+<pre>
 AI-Project
+
 │
 ├── backend
 │   ├── app.py
@@ -77,6 +80,7 @@ AI-Project
 ├── .gitignore
 │
 └── README.md
+</pre>
 
 ---
 
@@ -104,7 +108,6 @@ npm run dev
 ### Prediction
 
 ![Prediction](screenshots/prediction.jpeg)
-
 
 ---
 
