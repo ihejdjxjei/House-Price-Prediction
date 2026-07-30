@@ -60,3 +60,54 @@ The Random Forest model achieved the best performance and was selected.
 ---
 
 ## 🌐 Project Structure
+AI-Project
+│
+├── backend
+│   ├── app.py
+│   └── house_price_model.pkl
+│
+├── frontend
+│   ├── src
+│   ├── App.css
+│   └── App.jsx
+│
+├── notebook
+│   └── housepricepredictio.ipynb
+│
+├── .gitignore
+│
+└── README.md
+
+---
+
+## ⚙️ Run Backend
+cd backend
+
+python app.py
+
+---
+
+## ⚙️ Run Frontend
+cd frontend
+
+npm run dev
+
+---
+
+## 📸 Screenshots
+
+### Home Page
+
+![Home Page](screenshots/home.jpeg)
+
+
+### Prediction
+
+![Prediction](screenshots/prediction.jpeg)
+
+
+---
+
+## 👨‍💻 Author
+
+Mohamed Eslam
