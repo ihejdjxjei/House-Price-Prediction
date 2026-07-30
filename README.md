@@ -103,7 +103,7 @@ npm run dev
 
 ### Prediction
 
-![Prediction](screenshots/prediction.jpeg)
+
 
 
 ---
