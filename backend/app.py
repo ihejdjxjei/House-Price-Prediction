@@ -1,55 +1,60 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
+from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
 import joblib
 import pandas as pd
 
 
-app = Flask(__name__)
-CORS(app)
+app = FastAPI()
+
+# CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
-
+# Load model
 model = joblib.load("house_price_model.pkl")
 encoders = joblib.load("label_encoder.pkl")
 
 
-@app.route("/")
+@app.get("/")
 def home():
-    return "Backend is running"
+    return {"message": "Backend is running"}
 
 
-
-@app.route("/predict", methods=["POST"])
-def predict():
+@app.post("/predict")
+async def predict(request: Request):
 
     try:
 
-        data = request.json
+        data = await request.json()
 
         print("Input:")
         print(data)
 
 
-     
+        # Add missing column
         data["Price (in rupees)"] = 0
 
 
-        
+        # Convert to dataframe
         df = pd.DataFrame([data])
 
 
-        
+        # Encode categorical columns
         for col, encoder in encoders.items():
 
             if col in df.columns:
-
                 df[col] = encoder.transform(
                     df[col].astype(str)
                 )
 
 
-        
-            columns = [
+        columns = [
             'Index',
             'Price (in rupees)',
             'location',
@@ -75,9 +80,9 @@ def predict():
         prediction = model.predict(df)
 
 
-        return jsonify({
+        return {
             "predicted_price": float(prediction[0])
-        })
+        }
 
 
     except Exception as e:
@@ -85,12 +90,6 @@ def predict():
         print("ERROR:")
         print(e)
 
-        return jsonify({
+        return {
             "error": str(e)
-        }), 400
-
-
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
+        }

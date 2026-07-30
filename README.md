@@ -87,7 +87,7 @@ AI-Project
 ## ⚙️ Run Backend
 cd backend
 
-python app.py
+uvicorn app:app --reload
 
 ---
 
@@ -104,10 +104,13 @@ npm run dev
 
 ![Home Page](screenshots/home.jpeg)
 
-
 ### Prediction
 
 ![Prediction](screenshots/prediction.jpeg)
+
+### API Documentation
+
+![Swagger](screenshots/swagger.jpeg)
 
 ---
 
