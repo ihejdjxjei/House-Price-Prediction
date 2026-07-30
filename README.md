@@ -102,12 +102,12 @@ npm run dev
 
 ### Home Page
 
+![Home Page](screenshots/home.jpeg)
 
-![Prediction](screenshots/prediction.jpeg)
 
 ### Prediction
 
-![Home Page](screenshots/home.jpeg)
+![Prediction](screenshots/prediction.jpeg)
 
 ---
 
